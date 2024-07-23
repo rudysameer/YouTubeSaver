@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Saver</title>
+</head>
+<body style="align-items: center; text-align: center; height: fit-content; border: 3px solid goldenrod; margin: 10%;">
+    <h2>Youtuber Saver</h2>
+    <b><p style="color: coral;">Save Your Favorite Yotube Here</p></b>
+    <form action="" method="post">
+        {% csrf_token %}
+<!--        for fetching the video-->
+        <input type="text" name="given-url" value="{{url}}" placeholder="Enter youtube url https://youtube.com/watch?......">
+        <button type="submit" name="fetch-vid" value="fetch-vid">Proceed</button>
+
+        <br>
+        <h3>{{vidTitle}}</h3>
+        <img src="{{vidThumbnail}}" alt="">
+
+        <br>
+
+
+        {% for x in stream  %}
+            {{x.resolution}} <button type="submit" name="download-vid" value="{{forloop.counter}}">Download</button>
+        {% endfor %}
+        <br><br>
+    </form>
+
+
+
+</body>
+</html>
